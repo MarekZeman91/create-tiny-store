@@ -84,7 +84,11 @@ To force update use the `immediate`.
 observable.get(); // Output: X
 
 observable.set('Y');
-observable.get(); // Output: X
+observable.set(state => state.toLowerCase());
+observable.get(); // Output: X ... unchanged yet
+
+// ... after debounce
+observable.get(); // Output: Y
 
 observable.set('Z', true);
 observable.get(); // Output: Z
@@ -112,17 +116,16 @@ const observableStore = createStore(
   // state ... state.get, state.set, ...
   ({ get, set }) => ({
     setFirstName: (firstName, immediate = false) => {
-      set({ ...get(), fname: firstName }, immediate);
+      // using function, destructure oldState, update fname
+      set(oldState => ({ ...oldState, fname: firstName }), immediate);
     },
     setLastName: (lastName, immediate = false) => {
+      // using object, destructure state, update lname
       set({ ...get(), lname: lastName }, immediate);
     },
     setFullName: (firstName, lastName, immediate = false) => {
+      // using new state, full replace
       set({ fname: firstName, lname: lastName }, immediate);
-    },
-    getFullName: () => {
-      const { fname, lname } = get();
-      return `${ fname } ${ lname }`;
     },
   }),
 );
