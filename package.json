@@ -1,0 +1,20 @@
+{
+  "name": "create-tiny-store",
+  "description": "A super tiny observable and store create tool. It offers the bare minimum for you to do what you want and what you need.",
+  "author": {
+    "name": "Marek Zeman",
+    "email": "marekzeman91+npm@gmail.com",
+    "url": "https://marekzeman91.github.io/"
+  },
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "files": ["lib"],
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.8.2"
+  }
+}
