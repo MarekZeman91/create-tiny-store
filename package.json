@@ -6,9 +6,10 @@
     "email": "marekzeman91+npm@gmail.com",
     "url": "https://marekzeman91.github.io/"
   },
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "type": "module",
   "scripts": {
     "build": "tsc"
   },
